@@ -14,7 +14,7 @@
           {{ t(`labels.${convHistory?.type}`) }}
         </n-text>
         <div class="py-4 px-4 max-w-full relative">
-          <n-text> 1：服务器3台：<a href="https://b1n.net/6H7OF">1号</a>、<a href="https://b1n.net/ypv3K">2号</a>、<a href="https://b1n.net/krxAV">3号</a></n-text>
+          <n-text> 1：服务器快速切换：<a href="https://b1n.net/6H7OF">1号</a>、<a href="https://b1n.net/ypv3K">2号</a>、<a href="https://b1n.net/krxAV">3号</a></n-text>
         </div>
         <div class="py-4 px-4 max-w-full relative">
           <n-text> 2：用前必看<a href="http://wiki.sydney-ai.com/zh/gongyi">使用说明</a>。</n-text>
