@@ -13,18 +13,20 @@
           {{ $t('commons.currentConversationModel') }}: {{ getChatModelNameTrans(convHistory?.current_model || null) }}
           {{ t(`labels.${convHistory?.type}`) }}
         </n-text>
+      <div class="container" style="display: flex; flex-direction: column;">
         <div class="py-4 px-4 max-w-full relative">
-          <n-text> 1：服务器快速切换：<a href="https://b1n.net/6H7OF">1号</a>、<a href="https://b1n.net/ypv3K">2号</a>、<a href="https://b1n.net/krxAV">3号</a></n-text>
+          <n-text> 1：服务器快速切换：<a href="http://1.xiaomenghuan.com">1号</a>、<a href="http://2.xiaomenghuan.com">2号</a>、<a href="http://3.xiaomenghuan.com">3号</a></n-text>
         </div>
         <div class="py-4 px-4 max-w-full relative">
           <n-text> 2：用前必看<a href="http://wiki.sydney-ai.com/zh/gongyi">使用说明</a>。</n-text>
-        </div>        >
+        </div>
         <div class="py-4 px-4 max-w-full relative">
           <n-text> 3：故障/入群<a href="https://b1n.net/X8I7G">Sydney</a>点击这里</n-text>
         </div>
         <div class="py-4 px-4 max-w-full relative">
           <n-text> 说明提示4：PLUS版本<a href="http://wiki.sydney-ai.com/zh/More/Plus"><strong style="text-decoration: underline;">价格方案点击这里</strong></a></n-text>
         </div>
+      </div>
         <n-button v-if="_fullscreen" class="absolute left-4 hide-in-print" text @click="toggleFullscreenHistory">
           <template #icon>
             <n-icon>
