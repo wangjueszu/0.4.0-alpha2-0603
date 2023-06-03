@@ -43,7 +43,7 @@
   </n-drawer>
 </template>
 
-<script setup lang="ts">  <!-- 使用 Vue 3 的 <script setup>
+<script setup lang="ts">  //<!-- 使用 Vue 3 的 <script setup>
 // 导入所需的库和组件
 import { Pencil, TrashOutline } from '@vicons/ionicons5';  // 导入图标
 import { RefreshFilled, SettingsRound } from '@vicons/material';  // 导入图标
