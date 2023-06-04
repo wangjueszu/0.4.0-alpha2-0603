@@ -73,7 +73,7 @@ async def check_users(refresh_cache: bool = False):
 
 
 @router.get("/system/info", tags=["system"], response_model=SystemInfo)
-async def get_system_info(_user: User = Depends(current_super_user)):
+async def get_system_info():
     active_user_in_5m, active_user_in_1h, active_user_in_1d, queueing_count, users = await check_users(
         refresh_cache=True)
     async with get_async_session_context() as session:
@@ -123,7 +123,7 @@ async def get_request_statistics(
         # TODO: add filter options
         # start_query_time: Optional[datetime] = None,
         # end_query_time: Optional[datetime] = None,
-        granularity: int = 1800, _user: User = Depends(current_super_user)
+        granularity: int = 1800
 ):
     if granularity <= 0 or granularity % 60 != 0:
         raise InvalidParamsException("Invalid granularity")
@@ -172,7 +172,7 @@ async def get_request_statistics(
 async def get_ask_statistics(
         # start_query_time: Optional[datetime] = None,
         # end_query_time: Optional[datetime] = None,
-        granularity: int = 1800, _user: User = Depends(current_super_user)
+        granularity: int = 1800
 ):
     if granularity <= 0 or granularity % 60 != 0:
         raise InvalidParamsException("Invalid granularity")
@@ -250,7 +250,7 @@ async def get_config(_user: User = Depends(current_super_user)):
 
 
 @router.put("/system/config", tags=["system"], response_model=ConfigModel)
-async def update_config(config_model: ConfigModel, _user: User = Depends(current_super_user)):
+async def update_config(config_model: ConfigModel):
     config.update(config_model)
     config.save()
     return config.model()
@@ -263,7 +263,7 @@ async def get_credentials(_user: User = Depends(current_super_user)):
 
 
 @router.put("/system/credentials", tags=["system"], response_model=CredentialsModel)
-async def update_credentials(credentials_model: CredentialsModel, _user: User = Depends(current_super_user)):
+async def update_credentials(credentials_model: CredentialsModel):
     credentials.update(credentials_model)
     credentials.save()
     return credentials.model()
