@@ -61,20 +61,20 @@
 import { FormInst } from 'naive-ui';
 import { FormValidationError } from 'naive-ui/es/form';
 import { reactive, ref } from 'vue';
-import { useI18n } from 'vue-i18n';
+
 import { useRouter } from 'vue-router';
 
 import { LoginData } from '@/api/user';
 import { useUserStore } from '@/store';
-import { Message } from '@/utils/tips';
-import UpdateUserSettingForm from "@/views/admin/components/UpdateUserSettingForm.vue";
-import CreateUserForm from "@/views/admin/components/CreateUserForm.vue";
-import UpdateUserBasicForm from "@/views/admin/components/UpdateUserBasicForm.vue";
+
+
+
+
 
 import { Pencil, TrashOutline } from '@vicons/ionicons5';
 import { RefreshFilled, SettingsRound } from '@vicons/material';
 import { DataTableColumns, NButton, NIcon } from 'naive-ui';
-import { h, ref } from 'vue';
+
 import { useI18n } from 'vue-i18n';
 
 import { deleteUserApi, getAllUserApi, registerApi, updateUserByIdApi, updateUserSettingApi } from '@/api/user';
@@ -87,9 +87,9 @@ import { getDateStringSorter } from '@/utils/table';
 import { Dialog, Message } from '@/utils/tips';
 import { renderUserPerModelCounts } from '@/utils/user';
 
-import CreateUserForm from '../components/CreateUserForm.vue';
-import UpdateUserBasicForm from '../components/UpdateUserBasicForm.vue';
-import UpdateUserSettingForm from '../components/UpdateUserSettingForm.vue';
+//import CreateUserForm from '../components/CreateUserForm.vue';
+//import UpdateUserBasicForm from '../components/UpdateUserBasicForm.vue';
+//import UpdateUserSettingForm from '../components/UpdateUserSettingForm.vue';
 
 const router = useRouter();
 const { t } = useI18n();
