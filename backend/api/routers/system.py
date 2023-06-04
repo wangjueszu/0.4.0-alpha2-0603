@@ -270,7 +270,7 @@ async def update_credentials(credentials_model: CredentialsModel, _user: User = 
 
 
 @router.post("/system/import-users", tags=["system"])
-async def import_users(file: UploadFile = File(...), _user: User = Depends(current_super_user)):
+async def import_users(file: UploadFile = File(...)):
     """
     解析csv文件，导入用户
     csv字段：
