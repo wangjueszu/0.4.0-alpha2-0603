@@ -87,9 +87,9 @@ import { getDateStringSorter } from '@/utils/table';
 import { Dialog, Message } from '@/utils/tips';
 import { renderUserPerModelCounts } from '@/utils/user';
 
-//import CreateUserForm from '../components/CreateUserForm.vue';
-//import UpdateUserBasicForm from '../components/UpdateUserBasicForm.vue';
-//import UpdateUserSettingForm from '../components/UpdateUserSettingForm.vue';
+import CreateUserForm from '../admin/components/CreateUserForm.vue';
+import UpdateUserBasicForm from '../admin/components/UpdateUserBasicForm.vue';
+import UpdateUserSettingForm from '../admin/components/UpdateUserSettingForm.vue';
 
 const router = useRouter();
 const { t } = useI18n();
