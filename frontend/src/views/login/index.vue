@@ -68,24 +68,15 @@ import { LoginData } from '@/api/user';
 import { useUserStore } from '@/store';
 
 
-
-
-
-import { Pencil, TrashOutline } from '@vicons/ionicons5';
-import { RefreshFilled, SettingsRound } from '@vicons/material';
 import { DataTableColumns, NButton, NIcon } from 'naive-ui';
 
 import { useI18n } from 'vue-i18n';
 
 import { deleteUserApi, getAllUserApi, registerApi, updateUserByIdApi, updateUserSettingApi } from '@/api/user';
-import ChatTypeTagInfoCell from '@/components/ChatTypeTagInfoCell.vue';
 import { useDrawer } from '@/hooks/drawer';
 import { chatStatusMap, UserCreate, UserReadAdmin, UserSettingSchema, UserUpdateAdmin } from '@/types/schema';
-import { getCountTrans } from '@/utils/chat';
 import { screenWidthGreaterThan } from '@/utils/media';
-import { getDateStringSorter } from '@/utils/table';
 import { Dialog, Message } from '@/utils/tips';
-import { renderUserPerModelCounts } from '@/utils/user';
 
 import CreateUserForm from '../admin/components/CreateUserForm.vue';
 import UpdateUserBasicForm from '../admin/components/UpdateUserBasicForm.vue';
@@ -142,20 +133,9 @@ const login = async () => {
     });
 };
 
-if (userStore.user) {
-  router.push({ name: 'conversation' });
-}
-
-const refreshData = () => {
-  getAllUserApi().then((res) => {
-    data.value = res.data;
-    Message.success(t('tips.refreshed'));
-  });
-};
-
-getAllUserApi().then((res) => {
-  data.value = res.data;
-});
+//if (userStore.user) {
+//  router.push({ name: 'conversation' });
+//}
 
 const drawer = useDrawer([
   { name: 'create', title: t('commons.createUser') },
@@ -233,32 +213,4 @@ const handleUpdateUserSetting = (userSetting: Partial<UserSettingSchema>) => {
     });
 };
 
-const handleDeleteUser = (row: UserReadAdmin) => {
-  const d = Dialog.warning({
-    title: t('commons.deleteUser'),
-    content: t('tips.deleteUserConfirm'),
-    positiveText: t('commons.confirm'),
-    negativeText: t('commons.cancel'),
-    onPositiveClick: () => {
-      d.loading = true;
-      return new Promise((resolve, reject) => {
-        deleteUserApi(row.id)
-          .then(() => {
-            Message.success(t('tips.deleteUserSuccess'));
-            getAllUserApi().then((res) => {
-              data.value = res.data;
-            });
-            resolve(true);
-          })
-          .catch((err) => {
-            Message.error(t('tips.deleteUserFailed') + ': ' + err);
-            reject(err);
-          })
-          .finally(() => {
-            d.loading = false;
-          });
-      });
-    },
-  });
-};
 </script>
